@@ -3,38 +3,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 ---
 
-<BaseLayout title="Projects" sideBarActiveItemID="services">
+<BaseLayout title="Services" sideBarActiveItemID="services">
   <div>
-    <div class="text-3xl w-full font-bold mb-5">Services Header</div>
+    <div class="text-3xl w-full font-bold mb-5">My Services</div>
   </div>
 
   <HorizontalCard
-    title="Service 1"
+    title="Backend Development"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    desc="I have experience in developing robust and scalable backend applications, especially by using Rust, Java and Kotlin (with the Spring Boot framework), but I have also worked with Python (FastAPI and Django) and C# (ASP.NET Core framework)."
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Embedded Systems Development"
+    img="/post_img.webp"
+    desc="I have experience in developing embedded systems using C, C++, and Rust. I am familiar with the most important concepts in working with RTOS platforms and have worked on projects using Zephyr and RIOT OS. During my bachelor thesis, I have worked with Embedded Rust which was a great experience and I have an eye on the development in this field."
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Embedded Linux"
+    img="/post_img.webp"
+    desc="I have made an extensive and practical course on coursera.org about developing Embedded Linux with Buildroot and Yocto. Many concepts were already familiar due to my study of computer science, but I could get a refresher and more deep understanding of many subjects taught in this course."
+    url="#"
     badge="NEW"
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Service 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Service 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Service 4"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
   />
 </BaseLayout>

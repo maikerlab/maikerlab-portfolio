@@ -3,49 +3,52 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 ---
 
-<BaseLayout title = "Projects" sideBarActiveItemID="projects">
+<BaseLayout title="Projects" sideBarActiveItemID="projects">
   <div>
-    <div class="text-3xl w-full font-bold mb-5">Projects Header</div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Backend Development</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 1"
+    title="TODO List"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    desc="A simple TODO list API, built with Rust and the Actix web framework."
+    url="https://github.com/maikerlab/rust-todo-list"
     badge="NEW"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="Demo Project 2"
+    title="Lexoffice Analytics"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    desc="A CLI tool for synchronizing data from the Lexoffice Public API to a MongoDB cluster, enabling data insights and analytics for business operations."
+    url="https://github.com/maikerlab/lexoffice-analytics"
   />
 
   <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Projects Header</div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Embedded Systems</div>
+  </div>
+  <HorizontalCard
+    title="Meatometer"
+    img="/post_img.webp"
+    desc="A simple meat temperature sensor for monitoring the doneness of your meat, implemented on Zephyr OS, tested on a Nordic nRF7002DK board."
+    url="https://github.com/maikerlab/meatometer-zephyr"
+    badge="NEW"
+  />
+    <HorizontalCard
+    title="My Bachelor Thesis - Porting the Smart Home Standard Matter to RIOT OS"
+    img="/post_img.webp"
+    desc="During my bachelor thesis, I ported the smart home standard Matter to RIOT OS, using the rs-matter (Embedded Rust) library."
+    url="https://github.com/maikerlab/meatometer-zephyr"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Frontend Development</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 3"
+    title="My Website"
     img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 4"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 5"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    desc="The website you are currently on! Built with Astro and this cool template by Manuel Ernesto. Check out his work and support him!"
+    url="https://github.com/maikerlab/maikerlab-portfolio"
+    badge="NEW"
   />
 </BaseLayout>
