@@ -6,5 +6,7 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://astrofy-template.netlify.app',
-  integrations: [mdx(), sitemap(), tailwind()]
+  integrations: [mdx(), tailwind()]
+  // Note: sitemap() is temporarily disabled due to a bug with absolute paths
+  // Enable it when the sitemap package bug is fixed
 });
