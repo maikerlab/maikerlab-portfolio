@@ -5,6 +5,30 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 
 <BaseLayout title="Projects" sideBarActiveItemID="projects">
   <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Embedded Systems</div>
+  </div>
+  <HorizontalCard
+    title="Zephyr Template"
+    img="/post_img.webp"
+    desc="A template project for Zephyr OS, to get started quickly with new Zephyr projects. Includes unit tests, CI/CD pipeline, and a simple example application."
+    url="https://github.com/maikerlab/template-zephyr"
+    badge="NEW"
+  />
+  <HorizontalCard
+    title="Meatometer"
+    img="/post_img.webp"
+    desc="A simple meat temperature sensor for monitoring the doneness of your meat, implemented on Zephyr OS, tested on a Nordic nRF7002DK board."
+    url="https://github.com/maikerlab/meatometer-zephyr"
+    badge="IN PROGRESS"
+  />
+  <HorizontalCard
+    title="My Bachelor Thesis - Porting the Smart Home Standard Matter to RIOT OS"
+    img="/post_img.webp"
+    desc="During my bachelor thesis, I ported the smart home standard Matter to RIOT OS, using the rs-matter (Embedded Rust) library."
+    url="https://github.com/maikerlab/meatometer-zephyr"
+  />
+
+  <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">Backend Development</div>
   </div>
 
@@ -13,7 +37,6 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     img="/post_img.webp"
     desc="A simple TODO list API, built with Rust and the Actix web framework."
     url="https://github.com/maikerlab/rust-todo-list"
-    badge="NEW"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
@@ -21,23 +44,6 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     img="/post_img.webp"
     desc="A CLI tool for synchronizing data from the Lexoffice Public API to a MongoDB cluster, enabling data insights and analytics for business operations."
     url="https://github.com/maikerlab/lexoffice-analytics"
-  />
-
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Embedded Systems</div>
-  </div>
-  <HorizontalCard
-    title="Meatometer"
-    img="/post_img.webp"
-    desc="A simple meat temperature sensor for monitoring the doneness of your meat, implemented on Zephyr OS, tested on a Nordic nRF7002DK board."
-    url="https://github.com/maikerlab/meatometer-zephyr"
-    badge="NEW"
-  />
-    <HorizontalCard
-    title="My Bachelor Thesis - Porting the Smart Home Standard Matter to RIOT OS"
-    img="/post_img.webp"
-    desc="During my bachelor thesis, I ported the smart home standard Matter to RIOT OS, using the rs-matter (Embedded Rust) library."
-    url="https://github.com/maikerlab/meatometer-zephyr"
   />
 
   <div>

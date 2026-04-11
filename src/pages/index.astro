@@ -14,23 +14,27 @@ const last_posts = posts.slice(0, 3);
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
     <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Maik Lorenz</div>
+    <div class="text-5xl font-bold">I'm Maik</div>
     <div class="text-3xl py-3 font-bold">
-      Software Engineer // Backend & Embedded
+      Software Engineer // Embedded & Backend Development
     </div>
     <div class="py-2">
       <text class="text-lg">
         I am passioned about developing software and hardware solutions that
         make a difference. With almost 10 years of working experience, I have a
         strong background in electrical engineering and industrial sensor
-        technology. After my study I got into web development with focus on
-        backend and cloud technologies. During my free time I like to build nice
-        personal projects to keep on growing and getting hands on with new
-        technologies.
+        technology. In my most recent job I was working as a Backend developer.
+        Now I want to get back to my roots and work on embedded systems, which
+        is what I am most passionate about. On this website I want to share my
+        projects and what I learned along the way.
       </text>
     </div>
     <div class="mt-8">
-      <a class="btn" href="https://www.linkedin.com/in/maik-lorenz-5b7780bb/" target="_blank">
+      <a
+        class="btn"
+        href="https://www.linkedin.com/in/maik-lorenz-5b7780bb/"
+        target="_blank"
+      >
         Let's connect!</a
       >
       <a
@@ -44,25 +48,34 @@ const last_posts = posts.slice(0, 3);
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-2">
+      My most recent projects {"</>"}
+    </div>
   </div>
 
+  <HorizontalCard
+    title="Zephyr Template"
+    img="/post_img.webp"
+    desc="A template project for Zephyr OS, to get started quickly with new Zephyr projects. Includes unit tests, CI/CD pipeline, and a simple example application."
+    url="https://github.com/maikerlab/template-zephyr"
+    badge="EMBEDDED"
+  />
   <HorizontalCard
     title="Meatometer"
     img="/post_img.webp"
     desc="A simple meat temperature sensor for monitoring the doneness of your meat, implemented on Zephyr OS, tested on a Nordic nRF7002DK board."
     url="https://github.com/maikerlab/meatometer-zephyr"
-    badge="NEW"
+    badge="EMBEDDED"
   />
-  <div class="divider my-0"></div>
   <HorizontalCard
     title="TODO List"
     img="/post_img.webp"
     desc="A simple TODO list API, built with Rust and the Actix web framework."
     url="https://github.com/maikerlab/rust-todo-list"
-    badge="NEW"
+    badge="BACKEND"
   />
 
+  <div class="divider my-0"></div>
   <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
   </div>
