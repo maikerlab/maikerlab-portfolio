@@ -4,7 +4,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astrofy-template.netlify.app',
+  site: 'https://maikerlab.de',
   integrations: [mdx(), tailwind()],
   i18n: {
     locales: ["de", "en"],
