@@ -10,7 +10,7 @@ const changeCurrentUrl = (lang: string) => {
         /^\/[a-z]{2}\//,
         `/${lang}/`,
     );
-    return currentUrl.toString();
+    return currentUrl.pathname + currentUrl.search + currentUrl.hash;
 };
 ---
 
