@@ -9,6 +9,6 @@ export function getLangFromUrl(url: URL) {
 export function useTranslations(lang: keyof typeof ui) {
     const localizedUI: Record<string, string> = ui[lang];
     return function t(key: keyof (typeof ui)[typeof defaultLang]) {
-        return key in localizedUI ? localizedUI[key] : ui[defaultLang][key];
+        return key in localizedUI ? localizedUI[key] : ui[defaultLang][key] ?? `t=${key}`;
     };
 }

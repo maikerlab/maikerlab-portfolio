@@ -13,93 +13,51 @@ export function getStaticPaths() {
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Profile</div>
+    <div class="text-3xl w-full font-bold">{t("cv.title")}</div>
   </div>
 
   <div class="mb-10 text-justify">
-    I have a strong background in electrical engineering and industrial sensor
-    technology. Because I was always passioned about software development, I
-    studied computer science and then worked as a backend developer in multiple
-    projects, for customers and internal stakeholders. Now I want to get back to
-    my roots and work as an Embedded Software Engineer.
+    {t("cv.intro")}
   </div>
 
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Experience</div>
+    <div class="text-3xl w-full font-bold">{t("cv.experience")}</div>
   </div>
 
   <div class="time-line-container mb-10">
     <TimeLineElement
-      title="Backend Developer"
-      subtitle="Since July 2024 at AKRA GmbH, Hamburg, Germany"
+      title={t("cv.akra_professional.title")}
+      subtitle={t("cv.akra_professional.subtitle")}
     >
-      Development of web applications with focus on backend, based on
-      requirements from customers and internal stakeholders · Implementation of
-      new endpoints and improvement of REST APIs · Development of SQL- and
-      Code-based migrations to extend database schemas · Testing the fulfillment
-      of requirements through development of unit and integration tests and
-      integration into CI/CD pipelines · Migrating a web app’s authentication
-      mechanism to OAuth 2.0 · Designing a new application for managing employee
-      and freelancer profiles
+      {t("cv.akra_professional.description")}
     </TimeLineElement>
     <TimeLineElement
-      title="Working Student Software Development"
-      subtitle="From April 2023 to June 2024 at AKRA GmbH, Hamburg, Germany"
+      title={t("cv.akra_working_student.title")}
+      subtitle={t("cv.akra_working_student.subtitle")}
     >
-      Introduction to various web development technologies · Development of web
-      applications with focus on backend, based on requirements from customers
-      and internal stakeholders · Implementation of new endpoints and expansion
-      of REST APIs · Ensuring quality through the development of unit and
-      integration tests
+      {t("cv.akra_working_student.description")}
     </TimeLineElement>
     <TimeLineElement
-      title="Working Student Software Development"
-      subtitle="From March 2020 to September 2022 at SICK AG, Waldkirch, Germany (Remote)"
+      title={t("cv.sick_working_student.title")}
+      subtitle={t("cv.sick_working_student.subtitle")}
     >
-      Development of a hardware concept for the next generation of a diagnostic
-      system · Integration of an industrial USB camera with a “Sensor
-      Integration Machine” by developing an application in C++ · Development of
-      a Docker image for deployment on the target system · Development of an
-      interface to control the camera from within the sensor app · Development
-      of SensorApps in Lua · Development of a web application for managing
-      central data for the diagnostic system
+      {t("cv.sick_working_student.description")}
     </TimeLineElement>
     <TimeLineElement
-      title="Return Process Engineering"
-      subtitle="From September 2016 to February 2020 at SICK AG, Waldkirch, Germany"
-      >Work Package responsibilities for the project “Decentralized Analysis
-      Tool”:<br />Development of a system for the semi-automated diagnosis of
-      industrial sensors at international subsidiaries to enable the early
-      identification of repair measures, reduce transportation costs, and
-      improve service quality for end customers · Creation of program control
-      flows · Familiarization with interface documentation and the internal
-      functioning of sensors with the goal of optimally identifying causes of
-      faults, providing maintenance recommendations, and collecting data for
-      quality assurance · Definition of software requirements in close
-      collaboration with software developers · Project planning for the
-      introduction of new products · Creation of technical documentation and
-      user manuals · Conducting training sessions and serving as the point of
-      contact for malfunctions and questions · Presenting the analysis tool
-      on-site at international subsidiaries
-
-      <br /><br />Technical Support:<br />Development and improvement of service
-      processes in the repair department · Conducting training sessions for
-      repair department staff · Detailed analysis of optical/electrical
-      assemblies of safety laser scanners, presentation of results to Quality
-      Assurance, PM, and R&D with the aim of initiating corrective actions ·
-      Introduction of a process for refurbishing assemblies in the repair
-      department to reduce repair costs · Responsible for setting up the
-      department’s own intranet section and knowledge base in Confluence</TimeLineElement
+      title={t("cv.sick_rpe.title")}
+      subtitle={t("cv.sick_rpe.subtitle")}
     >
+      {t("cv.sick_rpe.description")}
+    </TimeLineElement>
   </div>
 
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Education</div>
+    <div class="text-3xl w-full font-bold">{t("cv.education")}</div>
   </div>
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title="B. Sc. Computer Science of Technical Systems"
+      title={t("cv.bachelor_thesis")}
       subtitle="2020 to 2024 at HAW Hamburg (University of Applied Sciences), Germany"
     />
     <TimeLineElement
@@ -113,7 +71,7 @@ export function getStaticPaths() {
   </div>
 
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Certifications</div>
+    <div class="text-3xl w-full font-bold">{t("cv.certifications")}</div>
   </div>
 
   <ul class="list-disc mx-6 mb-10 grid gap-2">
