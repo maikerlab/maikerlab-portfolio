@@ -1,0 +1,29 @@
+---
+import { languages } from "src/i18n/ui";
+import { getLangFromUrl } from "src/i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+
+const changeCurrentUrl = (lang: string) => {
+    const currentUrl = new URL(Astro.url);
+    currentUrl.pathname = currentUrl.pathname.replace(
+        /^\/[a-z]{2}\//,
+        `/${lang}/`,
+    );
+    return currentUrl.toString();
+};
+---
+
+<ul class="flex flex-col md:flex-row gap-2 justify-center items-center">
+    {
+        Object.entries(languages).map(([lang, label]) => (
+            <li
+                class={`p-2 rounded-sm ${lang === currentLang ? "bg-black text-white" : "hover:bg-gray-200"}`}
+            >
+                <a href={changeCurrentUrl(lang)}>
+                    {label.icon} {label.name}
+                </a>
+            </li>
+        ))
+    }
+</ul>
