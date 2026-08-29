@@ -1,6 +1,14 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import TimeLineElement from "../components/cv/TimeLine.astro";
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import TimeLineElement from "src/components/cv/TimeLine.astro";
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export function getStaticPaths() {
+  return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
