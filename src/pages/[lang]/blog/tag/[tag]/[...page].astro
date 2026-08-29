@@ -6,18 +6,24 @@ import createSlug from "src/lib/createSlug";
 import { getLangFromUrl } from "src/i18n/utils";
 
 export async function getStaticPaths({ paginate }) {
-  const all_posts = await getCollection("blog");
-  const all_tags = all_posts.flatMap((post) => {
-    return post.data.tags || [];
-  });
+  const allPosts = await getCollection("blog");
+  const allTags = allPosts.flatMap((post) => post.data.tags || []);
 
-  return all_tags.flatMap((tag) => {
-    const filtred_posts = all_posts.filter((post) => {
-      return post.data.tags?.includes(tag);
-    });
-    return paginate(filtred_posts, {
-      params: { tag },
-      pageSize: 10,
+  // TODO: Improve / fix!
+  return (["de", "en"] as const).flatMap((lang) => {
+    const postsForLang = allPosts.filter(
+      (post) => post.data.enabled && post.id.startsWith(`${lang}/`),
+    );
+    const uniqueTags = Array.from(new Set(allTags));
+    return uniqueTags.flatMap((tag) => {
+      const postsForTag = postsForLang.filter((post) =>
+        post.data.tags?.includes(tag),
+      );
+      const paginatedPosts = paginate(postsForTag, {
+        pageSize: 10,
+        params: { lang, tag },
+      });
+      return paginatedPosts;
     });
   });
 }
