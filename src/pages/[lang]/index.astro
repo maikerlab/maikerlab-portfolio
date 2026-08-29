@@ -1,0 +1,107 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import HorizontalCard from "src/components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "src/lib/createSlug";
+
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const latestBlogPosts = (await getCollection("blog"))
+  .filter((post) => post.data.enabled && post.id.startsWith(`${lang}/`))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+export function getStaticPaths() {
+  return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">{t("home.hello")}</div>
+    <div class="text-5xl font-bold">{t("home.title")}</div>
+    <div class="text-3xl py-3 font-bold">
+      {t("home.subtitle")}
+    </div>
+    <div class="py-2">
+      <text class="text-lg">
+        {t("home.intro")}
+      </text>
+    </div>
+    <div class="mt-8">
+      <a
+        class="btn"
+        href="https://www.linkedin.com/in/maik-lorenz-5b7780bb/"
+        target="_blank"
+      >
+        {t("btn.lets_connect")}</a
+      >
+      <a
+        href="https://github.com/maikerlab"
+        target="_blank"
+        class="btn btn-outline ml-5"
+      >
+        {t("btn.check_github")}
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">
+      {t("projects.recent")}
+      {"</>"}
+    </div>
+  </div>
+
+  <HorizontalCard
+    title={t("projects.zephyr_template.title")}
+    img="/post_img.webp"
+    desc={t("projects.zephyr_template.description")}
+    url="https://github.com/maikerlab/template-zephyr"
+    badge="EMBEDDED"
+  />
+  <HorizontalCard
+    title={t("projects.meatometer.title")}
+    img="/post_img.webp"
+    desc={t("projects.meatometer.description")}
+    url="https://github.com/maikerlab/meatometer-zephyr"
+    badge="EMBEDDED"
+  />
+  <HorizontalCard
+    title={t("projects.todo_list.title")}
+    img="/post_img.webp"
+    desc={t("projects.todo_list.description")}
+    url="https://github.com/maikerlab/rust-todo-list"
+    badge="BACKEND"
+  />
+
+  <div class="divider my-0"></div>
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">{t("blog.latest")}</div>
+  </div>
+
+  {
+    latestBlogPosts.length === 0 ? (
+      <div class="bg-base-200 border-l-4 border-secondary w-full p-4 min-w-full">
+        <p class="font-bold">Sorry!</p>
+        <p>{t("blog.no_posts")}</p>
+      </div>
+    ) : (
+      latestBlogPosts.map((post) => (
+        <>
+          <HorizontalCard
+            title={post.data.title}
+            img={post.data.heroImage}
+            desc={post.data.description}
+            url={"/blog/" + createSlug(post.data.title, post.slug)}
+            target="_self"
+            badge={post.data.badge}
+          />
+          <div class="divider my-0" />
+        </>
+      ))
+    )
+  }
+</BaseLayout>

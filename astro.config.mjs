@@ -1,12 +1,16 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astrofy-template.netlify.app',
-  integrations: [mdx(), tailwind()]
+  site: 'https://maikerlab.de',
+  integrations: [mdx(), tailwind()],
+  i18n: {
+    locales: ["de", "en"],
+    defaultLocale: "de",
+    prefixDefaultLocale: false,
+  }
   // Note: sitemap() is temporarily disabled due to a bug with absolute paths
   // Enable it when the sitemap package bug is fixed
 });

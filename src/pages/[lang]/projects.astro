@@ -1,0 +1,73 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import HorizontalCard from "src/components/HorizontalCard.astro";
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export function getStaticPaths() {
+  return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+---
+
+<BaseLayout title="Projects" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">
+      {t("projects.embedded_systems")}
+    </div>
+  </div>
+  <HorizontalCard
+    title={t("projects.zephyr_template.title")}
+    img="/post_img.webp"
+    desc={t("projects.zephyr_template.description")}
+    url="https://github.com/maikerlab/template-zephyr"
+    badge="NEW"
+  />
+  <HorizontalCard
+    title={t("projects.meatometer.title")}
+    img="/post_img.webp"
+    desc={t("projects.meatometer.description")}
+    url="https://github.com/maikerlab/meatometer-zephyr"
+    badge="IN PROGRESS"
+  />
+  <HorizontalCard
+    title={t("projects.bachelor_thesis.title")}
+    img="/post_img.webp"
+    desc={t("projects.bachelor_thesis.description")}
+    url="https://github.com/maikerlab/meatometer-zephyr"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">
+      {t("projects.backend_development")}
+    </div>
+  </div>
+
+  <HorizontalCard
+    title={t("projects.todo_list.title")}
+    img="/post_img.webp"
+    desc={t("projects.todo_list.description")}
+    url="https://github.com/maikerlab/rust-todo-list"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title={t("projects.lexoffice_analytics.title")}
+    img="/post_img.webp"
+    desc={t("projects.lexoffice_analytics.description")}
+    url="https://github.com/maikerlab/lexoffice-analytics"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">
+      {t("projects.frontend_development")}
+    </div>
+  </div>
+
+  <HorizontalCard
+    title={t("projects.my_website.title")}
+    img="/post_img.webp"
+    desc={t("projects.my_website.description")}
+    url="https://github.com/maikerlab/maikerlab-portfolio"
+    badge="NEW"
+  />
+</BaseLayout>

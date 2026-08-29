@@ -1,0 +1,144 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import TimeLineElement from "src/components/cv/TimeLine.astro";
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export function getStaticPaths() {
+  return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">{t("cv.title")}</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    {t("cv.intro")}
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">{t("cv.experience")}</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title={t("cv.akra_professional.title")}
+      subtitle={t("cv.akra_professional.subtitle")}
+    >
+      {t("cv.akra_professional.description")}
+    </TimeLineElement>
+    <TimeLineElement
+      title={t("cv.akra_working_student.title")}
+      subtitle={t("cv.akra_working_student.subtitle")}
+    >
+      {t("cv.akra_working_student.description")}
+    </TimeLineElement>
+    <TimeLineElement
+      title={t("cv.sick_working_student.title")}
+      subtitle={t("cv.sick_working_student.subtitle")}
+    >
+      {t("cv.sick_working_student.description")}
+    </TimeLineElement>
+    <TimeLineElement
+      title={t("cv.sick_rpe.title")}
+      subtitle={t("cv.sick_rpe.subtitle")}
+    >
+      {t("cv.sick_rpe.description")}
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">{t("cv.education")}</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title={t("cv.bachelor_thesis")}
+      subtitle="2020 to 2024 at HAW Hamburg (University of Applied Sciences), Germany"
+    />
+    <TimeLineElement
+      title="State-certificed technician - Electrical Engineering, focus on data processing"
+      subtitle="2012 to 2015 at DAA Technikum, Essen, Germany"
+    />
+    <TimeLineElement
+      title="Apprenticeship - Electronics Technician for Devices and Systems"
+      subtitle="2007 to 2011 at Beha-Amprobe GmbH, Glottertal, Germany"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">{t("cv.certifications")}</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="https://verify.skilljar.com/c/4mt7wtp8msrb" target="_blank">
+        Claude Code in Action</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://www.coursera.org/account/accomplishments/records/4WRTIYNBBKVG"
+        target="_blank">Advanced Rust Programming</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://www.coursera.org/account/accomplishments/verify/IMJKOU7V0BUN"
+        target="_blank"
+        >Linux System Programming and Introduction to Buildroot</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://academy.nordicsemi.com/check-certificate/7019A88A14C69C2-7019A88A10E4CF7-11EFA0108D2EAD_33/"
+        target="_blank">nRF Connect SDK Intermediate</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://academy.nordicsemi.com/check-certificate/7019A8682A814E3-7019A8677274C08-11EFA0108D2EAD_33/"
+        target="_blank">nRF Connect SDK Fundamentals</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://learn.kodekloud.com/certificate/eb5e422c-69c6-4e20-a2fa-52d3fa5ab741"
+        target="_blank">Advanced Golang</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://gist.github.com/maikerlab/e6886d54c97d912aae44a50e65c2473e"
+        target="_blank"
+        >Bitcoin Development Mentorship Programme at Des Femmes Magazine</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://learn.kodekloud.com/certificate/ca337a0a-636a-4d55-8368-9025b746964c"
+        target="_blank"
+        >GitLab CI/CD: Architecting, Deploying, and Optimizing Pipelines</a
+      >
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-none md:columns-5 columns-2 mx-6">
+    <li>⭐️⭐️⭐️ Java</li>
+    <li>⭐️⭐️⭐️ Kotlin</li>
+    <li>⭐️⭐️⭐️ Spring Boot</li>
+    <li>⭐️⭐️⭐️ C</li>
+    <li>⭐️⭐️ Rust</li>
+    <li>⭐️⭐️ Go</li>
+    <li>⭐️ RIOT OS</li>
+    <li>⭐️ Zephyr</li>
+  </ul>
+</BaseLayout>

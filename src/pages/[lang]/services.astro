@@ -1,0 +1,40 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import HorizontalCard from "src/components/HorizontalCard.astro";
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export function getStaticPaths() {
+  return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+---
+
+<BaseLayout title="Services" sideBarActiveItemID="services">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">{t("services.title")}</div>
+  </div>
+
+  <HorizontalCard
+    title={t("services.backend_development.title")}
+    img="/post_img.webp"
+    desc={t("services.backend_development.description")}
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title={t("services.embedded_systems.title")}
+    img="/post_img.webp"
+    desc={t("services.embedded_systems.description")}
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title={t("services.embedded_linux.title")}
+    img="/post_img.webp"
+    desc={t("services.embedded_linux.description")}
+    url="#"
+    badge="NEW"
+  />
+</BaseLayout>
