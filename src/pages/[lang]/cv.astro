@@ -6,12 +6,83 @@ import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+type Course = {
+  name: string;
+  link?: string;
+};
+const courses: Course[] = [
+  {
+    name: "Claude Code in Action",
+    link: "https://verify.skilljar.com/c/4mt7wtp8msrb",
+  },
+  {
+    name: "Advanced Rust Programming",
+    link: "https://www.coursera.org/account/accomplishments/records/4WRTIYNBBKVG",
+  },
+  {
+    name: "Linux System Programming and Introduction to Buildroot",
+    link: "https://www.coursera.org/account/accomplishments/verify/IMJKOU7V0BUN",
+  },
+  {
+    name: "nRF Connect SDK Intermediate",
+    link: "https://academy.nordicsemi.com/check-certificate/7019A88A14C69C2-7019A88A10E4CF7-11EFA0108D2EAD_33/",
+  },
+  {
+    name: "nRF Connect SDK Fundamentals",
+    link: "https://academy.nordicsemi.com/check-certificate/7019A8682A814E3-7019A8677274C08-11EFA0108D2EAD_33/",
+  },
+  {
+    name: "Advanced Golang",
+    link: "https://learn.kodekloud.com/certificate/eb5e422c-69c6-4e20-a2fa-52d3fa5ab741",
+  },
+  {
+    name: "Bitcoin Development Mentorship Programme at Des Femmes Magazine",
+    link: "https://gist.github.com/maikerlab/e6886d54c97d912aae44a50e65c2473e",
+  },
+  {
+    name: "GitLab CI/CD: Architecting, Deploying, and Optimizing Pipelines",
+    link: "https://learn.kodekloud.com/certificate/ca337a0a-636a-4d55-8368-9025b746964c",
+  },
+];
+
+type Skill = {
+  name: string;
+  proficiency: number;
+};
+
+const skills: Skill[] = [
+  {
+    name: "Rust",
+    proficiency: 4,
+  },
+  {
+    name: "C",
+    proficiency: 5,
+  },
+  {
+    name: "Java",
+    proficiency: 5,
+  },
+  {
+    name: "Kotlin",
+    proficiency: 4,
+  },
+  {
+    name: "Go",
+    proficiency: 3,
+  },
+  {
+    name: "Docker",
+    proficiency: 4,
+  },
+].sort((a, b) => b.proficiency - a.proficiency);
+
 export function getStaticPaths() {
   return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
 }
 ---
 
-<BaseLayout title="Resume" sideBarActiveItemID="cv">
+<BaseLayout title={t("pages.cv")} sideBarActiveItemID="cv">
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">{t("cv.title")}</div>
   </div>
@@ -25,6 +96,9 @@ export function getStaticPaths() {
   </div>
 
   <div class="time-line-container mb-10">
+    <TimeLineElement title={t("cv.twk.title")} subtitle={t("cv.twk.subtitle")}>
+      {t("cv.twk.description")}
+    </TimeLineElement>
     <TimeLineElement
       title={t("cv.akra_professional.title")}
       subtitle={t("cv.akra_professional.subtitle")}
@@ -57,16 +131,16 @@ export function getStaticPaths() {
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title={t("cv.bachelor_thesis")}
-      subtitle="2020 to 2024 at HAW Hamburg (University of Applied Sciences), Germany"
+      title={t("cv.study.title")}
+      subtitle={t("cv.study.description")}
     />
     <TimeLineElement
-      title="State-certificed technician - Electrical Engineering, focus on data processing"
-      subtitle="2012 to 2015 at DAA Technikum, Essen, Germany"
+      title={t("cv.technician.title")}
+      subtitle={t("cv.technician.description")}
     />
     <TimeLineElement
-      title="Apprenticeship - Electronics Technician for Devices and Systems"
-      subtitle="2007 to 2011 at Beha-Amprobe GmbH, Glottertal, Germany"
+      title={t("cv.apprenticeship.title")}
+      subtitle={t("cv.apprenticeship.description")}
     />
   </div>
 
@@ -75,70 +149,32 @@ export function getStaticPaths() {
   </div>
 
   <ul class="list-disc mx-6 mb-10 grid gap-2">
-    <li>
-      <a href="https://verify.skilljar.com/c/4mt7wtp8msrb" target="_blank">
-        Claude Code in Action</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://www.coursera.org/account/accomplishments/records/4WRTIYNBBKVG"
-        target="_blank">Advanced Rust Programming</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://www.coursera.org/account/accomplishments/verify/IMJKOU7V0BUN"
-        target="_blank"
-        >Linux System Programming and Introduction to Buildroot</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://academy.nordicsemi.com/check-certificate/7019A88A14C69C2-7019A88A10E4CF7-11EFA0108D2EAD_33/"
-        target="_blank">nRF Connect SDK Intermediate</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://academy.nordicsemi.com/check-certificate/7019A8682A814E3-7019A8677274C08-11EFA0108D2EAD_33/"
-        target="_blank">nRF Connect SDK Fundamentals</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://learn.kodekloud.com/certificate/eb5e422c-69c6-4e20-a2fa-52d3fa5ab741"
-        target="_blank">Advanced Golang</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://gist.github.com/maikerlab/e6886d54c97d912aae44a50e65c2473e"
-        target="_blank"
-        >Bitcoin Development Mentorship Programme at Des Femmes Magazine</a
-      >
-    </li>
-    <li>
-      <a
-        href="https://learn.kodekloud.com/certificate/ca337a0a-636a-4d55-8368-9025b746964c"
-        target="_blank"
-        >GitLab CI/CD: Architecting, Deploying, and Optimizing Pipelines</a
-      >
-    </li>
+    {
+      courses.map((course) => (
+        <li>
+          <a
+            class="underline hover:bg-base-200"
+            href={course.link}
+            target="_blank"
+          >
+            {course.name}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Skills</div>
+    <div class="text-3xl w-full font-bold">{t("cv.skills")}</div>
   </div>
 
   <ul class="list-none md:columns-5 columns-2 mx-6">
-    <li>⭐️⭐️⭐️ Java</li>
-    <li>⭐️⭐️⭐️ Kotlin</li>
-    <li>⭐️⭐️⭐️ Spring Boot</li>
-    <li>⭐️⭐️⭐️ C</li>
-    <li>⭐️⭐️ Rust</li>
-    <li>⭐️⭐️ Go</li>
-    <li>⭐️ RIOT OS</li>
-    <li>⭐️ Zephyr</li>
+    {
+      skills.map((skill) => (
+        <li>
+          {"⭐️".repeat(skill.proficiency)} {skill.name}
+        </li>
+      ))
+    }
   </ul>
 </BaseLayout>
