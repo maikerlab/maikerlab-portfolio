@@ -6,8 +6,55 @@ module.exports = {
 	},
 	plugins: [require("daisyui")],
 	daisyui: {
-		themes: true, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
-		darkTheme: "dark", // name of one of the included themes for dark mode
-		logs: false, // Shows info about daisyUI version and used config in the console when building your CSS
-	  }
+		themes: [
+			{
+				maikerlab: {
+					"primary": "#2a9d8f",
+					"primary-content": "#f7fffe",
+					"secondary": "#d8eeeb",
+					"secondary-content": "#1f6f68",
+					"accent": "#3dbaa0",
+					"accent-content": "#08352c",
+					"neutral": "#e8eef2",
+					"neutral-content": "#334155",
+					"base-100": "#f8fafc",
+					"base-200": "#f1f5f9",
+					"base-300": "#e2e8f0",
+					"base-content": "#1e293b",
+					"info": "#38bdf8",
+					"success": "#34d399",
+					"warning": "#fbbf24",
+					"error": "#f87171",
+					"--rounded-box": "0.5rem",
+					"--rounded-btn": "0.375rem",
+					"--rounded-badge": "0.25rem",
+				},
+			},
+			{
+				"maikerlab-dark": {
+					"primary": "#5ec8bc",
+					"primary-content": "#0b2e2a",
+					"secondary": "#1e3a3a",
+					"secondary-content": "#5ec8bc",
+					"accent": "#5ed6b8",
+					"accent-content": "#0b2e2a",
+					"neutral": "#1e293b",
+					"neutral-content": "#e2e8f0",
+					"base-100": "#0f172a",
+					"base-200": "#1e293b",
+					"base-300": "#334155",
+					"base-content": "#e2e8f0",
+					"info": "#38bdf8",
+					"success": "#34d399",
+					"warning": "#fbbf24",
+					"error": "#f87171",
+					"--rounded-box": "0.5rem",
+					"--rounded-btn": "0.375rem",
+					"--rounded-badge": "0.25rem",
+				},
+			},
+		],
+		darkTheme: "maikerlab-dark",
+		logs: false,
+	},
 }
