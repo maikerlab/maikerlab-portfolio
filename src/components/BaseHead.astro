@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import { THEME_DARK, THEME_LIGHT, THEME_STORAGE_KEY } from '../config';
 
 export interface Props {
 	title: string;
@@ -18,6 +19,21 @@ const { title, description, image = '/social_img.webp', ogType = 'website' } = A
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Apply theme before paint to avoid flash -->
+<script is:inline define:vars={{ THEME_LIGHT, THEME_DARK, THEME_STORAGE_KEY }}>
+	(function () {
+		const stored = localStorage.getItem(THEME_STORAGE_KEY);
+		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		const theme =
+			stored === THEME_LIGHT || stored === THEME_DARK
+				? stored
+				: prefersDark
+					? THEME_DARK
+					: THEME_LIGHT;
+		document.documentElement.setAttribute("data-theme", theme);
+	})();
+</script>
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
