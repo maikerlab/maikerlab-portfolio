@@ -18,7 +18,7 @@ const changeCurrentUrl = (lang: string) => {
     {
         Object.entries(languages).map(([lang, label]) => (
             <li
-                class={`p-2 rounded-sm ${lang === currentLang ? "bg-black text-white" : "hover:bg-gray-200"}`}
+                class={`p-2 rounded-md ${lang === currentLang ? "bg-primary/15 text-primary" : "hover:bg-base-300"}`}
             >
                 <a href={changeCurrentUrl(lang)}>
                     {label.icon} {label.name}

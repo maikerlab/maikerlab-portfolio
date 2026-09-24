@@ -5,3 +5,7 @@ export const SITE_TITLE = 'maikerlab | Maik Lorenz';
 export const SITE_DESCRIPTION = 'Personal portfolio of Maik Lorenz, software engineer.';
 export const GENERATE_SLUG_FROM_TITLE = true
 export const TRANSITION_API = true
+
+export const THEME_LIGHT = 'maikerlab';
+export const THEME_DARK = 'maikerlab-dark';
+export const THEME_STORAGE_KEY = 'theme';

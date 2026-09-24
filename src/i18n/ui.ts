@@ -25,6 +25,9 @@ export const ui = {
         "errors.404.description": "Die Seite, die Sie suchen, konnte nicht gefunden werden.",
         "btn.lets_connect": "Lass uns connecten!",
         "btn.check_github": "Mein GitHub Profil",
+        "theme.toggle": "Farbschema umschalten",
+        "theme.light": "Hell",
+        "theme.dark": "Dunkel",
         "home.hello": "Moin 👋",
         "home.title": "Ich bin Maik",
         "home.subtitle": "Softwareentwickler // Embedded Systems & Backend",
@@ -107,6 +110,9 @@ export const ui = {
         // Buttons
         "btn.lets_connect": "Let's connect",
         "btn.check_github": "Check my GitHub",
+        "theme.toggle": "Toggle color theme",
+        "theme.light": "Light",
+        "theme.dark": "Dark",
         // Index page
         "home.hello": "Hello 👋",
         "home.title": "I am Maik",
