@@ -14,16 +14,32 @@ const changeCurrentUrl = (lang: string) => {
 };
 ---
 
-<ul class="flex flex-col md:flex-row gap-2 justify-center items-center">
-    {
-        Object.entries(languages).map(([lang, label]) => (
-            <li
-                class={`p-2 rounded-md ${lang === currentLang ? "bg-primary/15 text-primary" : "hover:bg-base-300"}`}
-            >
-                <a href={changeCurrentUrl(lang)}>
-                    {label.icon} {label.name}
-                </a>
-            </li>
-        ))
-    }
-</ul>
+<div class="flex shrink-0 items-center">
+    <div
+        class="join overflow-hidden rounded-btn border border-base-300"
+        role="navigation"
+        aria-label="Language"
+    >
+        {
+            Object.entries(languages).map(([lang, label]) => {
+                const isCurrent = lang === currentLang;
+                return (
+                    <a
+                        href={changeCurrentUrl(lang)}
+                        class:list={[
+                            "btn btn-sm join-item min-w-[2.75rem] font-medium",
+                            isCurrent
+                                ? "btn-primary"
+                                : "btn-ghost text-base-content/80",
+                        ]}
+                        aria-label={label.name}
+                        title={label.name}
+                        aria-current={isCurrent ? "page" : undefined}
+                    >
+                        {lang.toUpperCase()}
+                    </a>
+                );
+            })
+        }
+    </div>
+</div>

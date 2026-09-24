@@ -6,9 +6,9 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="flex w-full justify-center py-1">
+<div class="flex shrink-0 items-center">
     <label
-        class="flex cursor-pointer items-center gap-3"
+        class="flex cursor-pointer items-center gap-2"
         title={t("theme.toggle")}
     >
         <svg
